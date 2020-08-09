@@ -1,18 +1,20 @@
 if (SERVER) then
-	print("[HEALTH (SERVER)] Alright server, let's see if you can handle me...")
+	print("[VITALITY {ALPHA}] Vitality add-on detected")
 
 	AddCSLuaFile()
-
-    AddCSLuaFile("cl_health.lua")
+	resource.AddFile("sound/vitality_sfx/drbones.mp3")
+	resource.AddFile("sound/vitality_sfx/shellshock.wav")
+	AddCSLuaFile("cl_vitality.lua")
+	AddCSLuaFile('weapons/vitality_bandage.lua')
         
-	include('sv_health.lua')
-	print("[HEALTH (SERVER)] Wow! Such an amazing server! The addon is yours to use.")
+	include('sv_vitality.lua')
+	print("[VITALITY {ALPHA}] Successfully included Vitality")
 end
 
 if (CLIENT) then
-	print("[HEALTH (CLIENT)] Very well, client. I will see what I can do.")
+	print("[VITALITY {ALPHA}] Vitality add-on detected")
 
-	include('cl_health.lua')
+	include('cl_vitality.lua')
 
-	print("[HEALTH (SERVER)] Good news, client. You may use this addon.")
+	print("[VITALITY {ALPHA}] Successfully included Vitality")
 end
